@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>Hexo 常用命令</title>
+    <link href="/2021/04/09/Hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <url>/2021/04/09/Hexo-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    
+    <content type="html"><![CDATA[<p>##前言</p><p>为了方便查阅，这里讲常用指令汇总</p><p>##命令</p><p><code>hexo new &quot;postName&quot; </code> #新建文章<br><code>hexo new page &quot;pageName&quot;</code> #新建页面<br><code>hexo generate</code> #生成静态页面至public目录<br><code>hexo server</code> #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）<br><code>hexo deploy</code> #部署到GitHub<br><code>hexo help</code>  # 查看帮助<br><code>hexo version</code> #查看Hexo的版本</p><p>##简写命令</p><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs haxe">hexo n == hexo <span class="hljs-keyword">new</span><span class="hljs-type"></span><br><span class="hljs-type"></span><br></code></pre></td></tr></table></figure><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs verilog">hexo g == hexo <span class="hljs-keyword">generate</span><br></code></pre></td></tr></table></figure><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs axapta">hexo s == hexo <span class="hljs-keyword">server</span><br></code></pre></td></tr></table></figure><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">hexo d</span> == hexo deploy<br></code></pre></td></tr></table></figure><p>##流程</p><ol><li>进入服务器</li><li>进入Hexo按照根目录</li><li>使用<code>hexo new &quot;标题&quot;</code> 编写文章</li><li>使用<code>hexo g</code> 生成html文件</li><li>使用<code>hexo s</code> 启动服务</li><li>使用<code>hexo d</code> 推送生成的文件</li></ol><p>##个别命令<br><code>hexo clean</code> #清除缓存 ,网页正常情况下可以忽略此条命令,执行该指令后,会删掉站点根目录下的public文件夹<br><code>hexo g</code> #生成静态网页 (执行 $ hexo g后会在站点根目录下生成public文件夹, hexo会将”/blog/source/“ 下面的.md后缀的文件编译为.html后缀的文件,存放在”/blog/public/ “ 路径下)<br><code>hexo d</code> #将本地数据部署到远端服务器(如github)</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Hexo</tag>
+      
+      <tag>命令</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>postName</title>
     <link href="/2021/04/09/my-first-blog/"/>
     <url>/2021/04/09/my-first-blog/</url>
