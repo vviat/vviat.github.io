@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Hexo 常用命令 | Viat</title>
+  <title itemprop="name">c++梳理（一） | Viat</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -406,28 +406,39 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
           <header class="entry-header">
-            <h1 class="entry-title">Hexo 常用命令</h1>
-            <p class="entry-census">&nbsp;·&nbsp;2021-4-9&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p></p>
+            <h1 class="entry-title">c++梳理（一）</h1>
+            <p class="entry-census">viat&nbsp;·&nbsp;2021-4-12&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p></p>
 
             <hr>
           </header>
         
         <div class="entry-content">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>为了方便查阅，这里讲常用指令汇总</p>
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><p><code>hexo new &quot;postName&quot;</code> #新建文章<br><code>hexo new page &quot;pageName&quot;</code> #新建页面<br><code>hexo generate</code> #生成静态页面至public目录<br><code>hexo server</code> #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）<br><code>hexo deploy</code> #部署到GitHub<br><code>hexo help</code>  # 查看帮助<br><code>hexo version</code> #查看Hexo的版本</p>
-<h2 id="简写命令"><a href="#简写命令" class="headerlink" title="简写命令"></a>简写命令</h2><pre><code>hexo n == hexo new
-</code></pre><pre><code>hexo g == hexo generate
-</code></pre><pre><code>hexo s == hexo server
-</code></pre><pre><code>hexo d == hexo deploy
-</code></pre><h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><ol>
-<li>进入服务器</li>
-<li>进入Hexo按照根目录</li>
-<li>使用<code>hexo new &quot;标题&quot;</code> 编写文章</li>
-<li>使用<code>hexo g</code> 生成html文件</li>
-<li>使用<code>hexo s</code> 启动服务</li>
-<li>使用<code>hexo d</code> 推送生成的文件</li>
+          <h1 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h1><h2 id="面向对象的四个主要特点"><a href="#面向对象的四个主要特点" class="headerlink" title="面向对象的四个主要特点"></a>面向对象的四个主要特点</h2><p>抽象、封装、继承、多态；<br><strong>抽象</strong><br>数据抽象：描述某类对象的特征和状态；（属性）<br>行为抽象：描述某个类的功能或者行为特征；（方法）</p>
+<p><strong>封装</strong><br>将抽象得到的属性和方法相结合，形成一个整体。（类）<br>所以属性和方法都是类的成员；</p>
+<p><strong>继承</strong><br>新建一个新类，继承自原有的类；<br>原有的类叫做<strong>父类</strong>或者<strong>基类</strong>；<br>新类叫做<strong>子类</strong>或者<strong>派生类</strong>；<br>新类具有原有类的特征的同时，又具有自身的新特征；</p>
+<p><strong>多态</strong><br>多态性指的是同一段程序，可以同时处理多种类型对象的能力；</p>
+<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p>类相对于一种自定义类型；<br>这种类型定义出来的变量就是<strong>对象</strong>（实例）；<br>而这个定义的过程就是<strong>实例化</strong></p>
+<h2 id="类定义"><a href="#类定义" class="headerlink" title="类定义"></a>类定义</h2><p>类中定义的数据和函数，分别称为数据成员和函数成员；<br>可以通过<strong>对象名.成员属性</strong>的方式进行访问这个对象；<br>可以通过<strong>对象名.成员方法名（参数）</strong>去调用成员方法；</p>
+<pre><code>class 类名称{
+public :
+    外部成员
+protected:
+    保护型成员
+private:
+    私有成员
+};
+</code></pre><p>类中定义的<strong>private</strong>的成员变量或者函数，是无法在外面直接访问的；<br>所以说一个类必须要有接口，也就是可供外部访问的方法；</p>
+<h2 id="类的权限"><a href="#类的权限" class="headerlink" title="类的权限"></a>类的权限</h2><ol>
+<li>使用<strong>public</strong>定义的成员，是该类的<strong>公有成员</strong>，他们是可以在类外进行直接访问；<br>于是我们可以把调用类所必须的外部接口定义为public;</li>
+<li>而使用<strong>private</strong>定义的成员，是该类的<strong>私有成员</strong>，不能在类外进行直接访问，但是可以被同一个类内的成员访问；（同一类内不存在权限这么一说）</li>
+<li>如果定义时不写权限，<strong>默认设置为私有成员</strong>；</li>
 </ol>
-<h2 id="个别命令"><a href="#个别命令" class="headerlink" title="个别命令"></a>个别命令</h2><p><code>hexo clean</code> #清除缓存 ,网页正常情况下可以忽略此条命令,执行该指令后,会删掉站点根目录下的public文件夹<br><code>hexo g</code> #生成静态网页 (执行 $ hexo g后会在站点根目录下生成public文件夹, hexo会将”/blog/source/“ 下面的.md后缀的文件编译为.html后缀的文件,存放在”/blog/public/ “ 路径下)<br><code>hexo d</code> #将本地数据部署到远端服务器(如github)</p>
+<h1 id="类方法"><a href="#类方法" class="headerlink" title="类方法"></a>类方法</h1><pre><code>static + 返回值 + 函数名 + 参数列表
+</code></pre><p>函数的声明说明了函数的参数表，以及返回值，他必须写在类里面；<br>函数的实现可以写在类内或者类外；<br>而在类外实现必须加上（类名::）;</p>
+<pre><code>返回值　类名：：函数名（参数）{} 
+</code></pre><p>函数的形参可以带默认形参值，而带有默认值的参数必须放在最后；<br>对于类成员函数来说，默认值一定要写在类的定义里；而不能写在类定义之外的函数实现中；（类方法的默认参数只能写在类内）</p>
+<h2 id="类方法特点"><a href="#类方法特点" class="headerlink" title="类方法特点"></a>类方法特点</h2><p>1.类中的特殊方法<br>2.隶属于整个类<br>3.可以通过对象去访问公有类方法<br>4.类方法不能直接访问成员熟悉<br>5.没有this指针法</p>
+<h2 id="const方法"><a href="#const方法" class="headerlink" title="const方法"></a>const方法</h2><p>在返回过程中不能被其他操作改变返回值<br>在一个方法后加const</p>
 
         </div>
         <!-- .entry-content -->
@@ -456,28 +467,11 @@
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2021/04/12/c-梳理（一）/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                c++梳理（一）</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="/2021/04/09/my-first-blog/" rel="next">
+            <a href="/2021/04/12/c-梳理（一）/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
               </div>
@@ -485,7 +479,7 @@
               Next Post</span>
               <div class="info">
                 <h3>
-                postName</h3>
+                c++梳理（一）</h3>
                 <hr>
               </div>
             </a>
@@ -509,11 +503,11 @@
 
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
+          <a href="viat.vip" class="profile gravatar"><img src="https://i.loli.net/2021/04/12/tnSJ832GNp4675c.jpg" itemprop="image" alt="viat" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-            <a href="" itemprop="url" rel="author"></a>
+            <a href="viat.vip" itemprop="url" rel="author">viat</a>
             </h3>
           </div>
         </div>
