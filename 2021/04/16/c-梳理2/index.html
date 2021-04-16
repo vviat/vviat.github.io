@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Tag: tag2 | Viat</title>
+  <title itemprop="name">c++梳理（二） | Viat</title>
   
     <link rel="shortcut icon" href="/icon_image/web_icon.ico">
   
@@ -354,64 +354,169 @@
   </div>
 </header>
 
-      
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
-<div class="pattern-center ">
-  <div class="pattern-attachment-img">
-    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="tag2.img" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/190503.webp);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/190503.webp">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      c++梳理（二）</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://viat.vip">
+            <img src="https://gitee.com/viat/viat_image/raw/master/cdn/icon_image/blog_icon.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://viat.vip">viat</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2021-4-16<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
   </div>
-  <header class="pattern-header ">
-    <h1 class="cat-title">tag2</h1>
-  </header>
-</div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      
-  <!-- 首页默认取最最新文章集 -->
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2021/04/09/my-first-blog/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h1><p>对自己定义的方法进行初始化；（从无到有构造一个对象）<br>构造函数是定义在类内的特殊函数，它用于描述对类进行初始化的算法；<br>我们不需要手动调用构造函数，当我们创建对象的时候，构造函数会被自动调用；</p>
+<h2 id="默认构造函数"><a href="#默认构造函数" class="headerlink" title="默认构造函数"></a>默认构造函数</h2><p>如果不声明任何构造函数，系统会生成默认构造函数；<br>默认构造函数的特点：</p>
+<ol>
+<li>参数列表为空，不为数据成员赋初值；</li>
+<li>如果类内定义了成员的初始值，则使用类内定义的初始值；</li>
+<li>如果没有定义类内的初始化，则以默认方式初始化；</li>
+<li>基本数据类型的数据默认初始化的值是不确定的；</li>
+</ol>
+<h2 id="构造函数的性质"><a href="#构造函数的性质" class="headerlink" title="构造函数的性质"></a>构造函数的性质</h2><ol>
+<li>函数名与类名完全相同</li>
+<li>不能定义返回值，也不能有return语句；</li>
+<li>形参可有可无，也可带有默认参数；</li>
+<li>可以重载；</li>
+</ol>
+<h2 id="复制构造函数"><a href="#复制构造函数" class="headerlink" title="复制构造函数"></a>复制构造函数</h2><p>生成一个对象的副本有两种途径：</p>
+<ol>
+<li>建立一个新对象 ，将一个已有对象的数据成员值取出来，赋值给新对象。</li>
+<li>利用复制构造函数，通过一个已有的对象，来执行一个新对象的构造。<br>复制构造函数具有一般构造函数的所有特点；<br>复制构造函数的形参是对本类的一个对象的引用，目的是用一个已经存在的对象来初始化一个新的对象。（引用传递）<br>实际工作中，根据需求要定义一个复制构造函数，实现同类对象直接的数据成员的传递。<br>如果没有定义复制构造函数，系统会自动生成一个复制构造函数。<br><code>`</code><br>class 类名{<br>public:<br> 类名（类名＆　对象名）{<br> //实现<br> }<br>};</li>
+</ol>
+<p>class 类名{//深拷贝<br>public:<br>    类名（const 类名＆　对象名）{<br>    p = new p();<br>        <em>p = </em>(r.p);<br>    }<br>private:<br>    int *p;<br>};</p>
+<pre><code>
+### 复制构造函数的调用
+1. 当用类的一个对象去初始化该类的另一个对象的时候
+</code></pre><p>Point a(1,2);//有参的构造函数<br>Point b(a);//用对象ａ去初始化对象ｂ，调用复制构造函数<br>Point c = b;//用对象ｂ去给对象ｃ赋值，调用赋值构造函数</p>
+<pre><code>2. 当函数的形参是一个类的对象，调用函数时进行形实结合的时候
+</code></pre><p>void f(Point p){}<br>Point a(1,2);<br>f(a);</p>
+<pre><code>3. 当函数的返回值是类的对象的时候；
+</code></pre><p>Point g(){<br>    Point a(1,2);<br>    return a;<br>    //当函数返回值的时候，局部变量销毁;<br>    //return a返回的并不是ａ这个对象的本身，而是通过复制构造函数用ａ重新构造的对象<br>    //在函数返回后，临时变量ａ销毁。<br>}<br><code>`</code></p>
+<h3 id="为什么系统提供复制构造函数了，我们还有实现；"><a href="#为什么系统提供复制构造函数了，我们还有实现；" class="headerlink" title="为什么系统提供复制构造函数了，我们还有实现；"></a>为什么系统提供复制构造函数了，我们还有实现；</h3><p>很多情况下，我们没有必要去定义一个复制构造函数，但如果我们不想把一个对象全部复制，我们想要有选择的复制，或者在复制的过程中加点什么（有变化的复制），此时我们就需要编写新的复制构造函数；<br>除此之外，如果<strong>类中成员有指针类型</strong>，<strong>默认的构造函数</strong>实现的只是<strong>浅拷贝</strong>，存在安全隐患，此时我们就需要深拷贝；<br>有指针会把原有的对象的地址和新对象的地址指向同一区域，这样在改一个值的时候，另一个也会改，析构的时候一个对象会被析构两次，造成程序崩溃。</p>
+
         </div>
-        <img width="150" height="150" src="" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2021/04/09/my-first-blog/">
-    postName</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2021-4-9</div>
-    <p>
-    附加一段文章摘要，字数最好在140字以内，会出现在meta的description里面</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2021/04/09/my-first-blog/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://gitee.com/viat/viat_image/raw/master/cdn/img/custom/donate/1.jpg"></li>
+                <li class="wechat-code"><img src="https://gitee.com/viat/viat_image/raw/master/cdn/img/custom/donate/1.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2021/04/16/hello-world/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2020/portrait4k/200101.webp" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2020/portrait4k/200101.webp">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                Hello World</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2021/04/12/c-梳理1/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/190603.webp" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/190603.webp">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                c++梳理（一）</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "vnW8CPGFgWnX0tHJLapO1OSM-gzGzoHsz",
+        appKey: "PwgKx8n6fCWDA0J0QGXDchTC",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
 
-
-      <div class="clearer">
-      </div>
-    </main>
-    <!--  -->
-    
-  </div>
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="https://viat.vip" class="profile gravatar"><img src="https://gitee.com/viat/viat_image/raw/master/cdn/icon_image/blog_icon.jpg" itemprop="image" alt="viat" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://viat.vip" itemprop="url" rel="author">viat</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
