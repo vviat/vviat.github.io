@@ -367,12 +367,12 @@
       c++梳理（三）</h1>
       <p class="entry-census">
         <span>
-          <a href="vait.vip">
+          <a href="https://viat.vip">
             <img src="https://gitee.com/viat/viat_image/raw/master/cdn/icon_image/blog_icon.jpg">
           </a>
         </span>
         <span>
-          <a href="vait.vip">viat</a>
+          <a href="https://viat.vip">viat</a>
         </span>
         <span class="bull">
         ·</span>
@@ -390,9 +390,9 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" class="headerlink" title="浅拷贝和深拷贝"></a>浅拷贝和深拷贝</h2><p>简单点来说，就是假设B复制了A，当修改A时，看B是否会发生变化，如果B也跟着变了，说明这是浅拷贝，拿人手短，如果B没变，那就是深拷贝。<br>浅拷贝只是对指针的拷贝，拷贝后两个指针指向同一个内存空间，深拷贝不但对指针进行拷贝，而且对指针指向的内容进行拷贝，经深拷贝后的指针是指向两个不同地址的指针。<br>如果一个类拥有资源(堆，或者是其它系统资源)，当这个类的对象发生复制过程把资源也复制了，而不是单纯的指针指向同一区域；这个过程就可以叫做深拷贝，反之对象存在资源，但复制过程并未复制资源的情况视为浅拷贝。<br><a href="https://www.cnblogs.com/echolun/p/7889848.html" target="_blank" rel="noopener">深浅拷贝看该博客内的图片</a><br><a href="https://www.cnblogs.com/wuchanming/p/4050969.html" target="_blank" rel="noopener">c++浅拷贝和深拷贝详解</a></p>
-<h2 id="为什么要用值传递？"><a href="#为什么要用值传递？" class="headerlink" title="为什么要用值传递？"></a>为什么要用值传递？</h2><p>值传递是当函数调用时，给形参分配内存空间，然后用实参的值来初始化形参，那如果参数是一个对象的话，那对于值传递来说，初始化形参的过程中会造成很多额外的开销与系统资源，而用引用则不会。</p>
-<h2 id="值传递和引用传递"><a href="#值传递和引用传递" class="headerlink" title="值传递和引用传递"></a>值传递和引用传递</h2><p><strong>值传递</strong>：当函数发生调用时给形参分配内存空间，用实参的值来初始化形参，这是一个单向传递的过程。</p>
+          <h3 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" class="headerlink" title="浅拷贝和深拷贝"></a>浅拷贝和深拷贝</h3><p>简单点来说，就是假设B复制了A，当修改A时，看B是否会发生变化，如果B也跟着变了，说明这是浅拷贝，拿人手短，如果B没变，那就是深拷贝。<br>浅拷贝只是对指针的拷贝，拷贝后两个指针指向同一个内存空间，深拷贝不但对指针进行拷贝，而且对指针指向的内容进行拷贝，经深拷贝后的指针是指向两个不同地址的指针。<br>如果一个类拥有资源(堆，或者是其它系统资源)，当这个类的对象发生复制过程把资源也复制了，而不是单纯的指针指向同一区域；这个过程就可以叫做深拷贝，反之对象存在资源，但复制过程并未复制资源的情况视为浅拷贝。<br><a href="https://www.cnblogs.com/echolun/p/7889848.html" target="_blank" rel="noopener">深浅拷贝看该博客内的图片</a><br><a href="https://www.cnblogs.com/wuchanming/p/4050969.html" target="_blank" rel="noopener">c++浅拷贝和深拷贝详解</a></p>
+<h3 id="为什么要用值传递？"><a href="#为什么要用值传递？" class="headerlink" title="为什么要用值传递？"></a>为什么要用值传递？</h3><p>值传递是当函数调用时，给形参分配内存空间，然后用实参的值来初始化形参，那如果参数是一个对象的话，那对于值传递来说，初始化形参的过程中会造成很多额外的开销与系统资源，而用引用则不会。</p>
+<h3 id="值传递和引用传递"><a href="#值传递和引用传递" class="headerlink" title="值传递和引用传递"></a>值传递和引用传递</h3><p><strong>值传递</strong>：当函数发生调用时给形参分配内存空间，用实参的值来初始化形参，这是一个单向传递的过程。</p>
 <pre><code>swap(int a, int b)//值传递
 swap(x,y);
 首先系统会新建两个变量ａ和ｂ，然后把ｘ，ｙ的值付给他们；
@@ -482,11 +482,11 @@ int &amp;b = y;
 
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="vait.vip" class="profile gravatar"><img src="https://gitee.com/viat/viat_image/raw/master/cdn/icon_image/blog_icon.jpg" itemprop="image" alt="viat" height="70" width="70"></a>
+          <a href="https://viat.vip" class="profile gravatar"><img src="https://gitee.com/viat/viat_image/raw/master/cdn/icon_image/blog_icon.jpg" itemprop="image" alt="viat" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-            <a href="vait.vip" itemprop="url" rel="author">viat</a>
+            <a href="https://viat.vip" itemprop="url" rel="author">viat</a>
             </h3>
           </div>
         </div>
@@ -897,7 +897,7 @@ $(document).ready(function() {
   <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/piao.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/canvas-nest.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/sakura.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/noSomeKey.js"></script>
+  
 
   <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
   <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
