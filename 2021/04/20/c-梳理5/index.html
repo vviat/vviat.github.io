@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Hello World | Viat</title>
+  <title itemprop="name">c++梳理（五） | Viat</title>
   
     <link rel="shortcut icon" href="/icon_image/web_icon.ico">
   
@@ -360,23 +360,23 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2020/portrait4k/200101.webp);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2020/portrait4k/200101.webp">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/190802.webp);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/190802.webp">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      Hello World</h1>
+      c++梳理（五）</h1>
       <p class="entry-census">
         <span>
-          <a href="">
-            <img src="">
+          <a href="https://viat.vip">
+            <img src="https://gitee.com/viat/viat_image/raw/master/cdn/icon_image/blog_icon.jpg">
           </a>
         </span>
         <span>
-          <a href=""></a>
+          <a href="https://viat.vip">viat</a>
         </span>
         <span class="bull">
         ·</span>
-        2021-4-16<span class="bull">
+        2021-4-20<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -390,19 +390,30 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+          <h1 id="类的组合"><a href="#类的组合" class="headerlink" title="类的组合"></a>类的组合</h1><p>类的组合描述的就是一个类内嵌其他的对象作为成员的情况，他们之间的关系是一种包含与被包含的关系；<br>创建类对象的时候，如果这个类内具有内嵌对象成员，那么首先要创建各个对象，在创建的过程中我们要对类中的基本数据类型进行初始化，也要对内嵌对象成员进行初始化，所以要理解这些对象的构造函数调用顺序；</p>
+<h2 id="有内嵌对象成员的组合类的构造函数的调用顺序"><a href="#有内嵌对象成员的组合类的构造函数的调用顺序" class="headerlink" title="有内嵌对象成员的组合类的构造函数的调用顺序"></a>有内嵌对象成员的组合类的构造函数的调用顺序</h2><ol>
+<li>调用内嵌对象的构造函数，调用顺序按照内嵌对象在组合类定义中出现的顺序，不过我们写在初始化列表中的内嵌函数顺序，和内嵌对象构造函数的调用顺序是没有关系的。</li>
+<li>执行本类构造函数的函数体。</li>
+</ol>
+<h2 id="有内嵌对象的组合类的复制构造函数顺序"><a href="#有内嵌对象的组合类的复制构造函数顺序" class="headerlink" title="有内嵌对象的组合类的复制构造函数顺序"></a>有内嵌对象的组合类的复制构造函数顺序</h2><p>默认编译器会自动调用各个内嵌对象的复制构造函数，为他们初始化，如果我们想人为编写复制构造函数，那么需要为内嵌对象的复制构造函数传递参数；</p>
+<h2 id="有内嵌对象的组合类的析构函数顺序"><a href="#有内嵌对象的组合类的析构函数顺序" class="headerlink" title="有内嵌对象的组合类的析构函数顺序"></a>有内嵌对象的组合类的析构函数顺序</h2><p>析构函数的顺序和构造函数的顺序相反，而且这时系统生成的默认析构函数，并不会什么都不做，应该会去调用内嵌对象的析构函数。</p>
+<h2 id="组合类的构造函数的定义"><a href="#组合类的构造函数的定义" class="headerlink" title="组合类的构造函数的定义"></a>组合类的构造函数的定义</h2><pre><code>类名：：类名（形参表）：内嵌对象１（形参表），内嵌对象２（形参表）｛
+    //初始化函数体
+｝
+</code></pre><p><strong>内嵌对象最好使用初始化列表</strong>为了节省开销</p>
+<h1 id="前向引用声明"><a href="#前向引用声明" class="headerlink" title="前向引用声明"></a>前向引用声明</h1><p>可以把类的声明放在最前面，让编译器知道有一个这个类；<br>但是在提供一个完整的类的定义之前，不能定义该类的对象，也不能在成员函数中使用该对象；</p>
+<pre><code>class Elder;
+class Toad{
+    Elder h;//错误，类Elder定义不完整；
+    //如果想解决这个错误需要把　ｈ变成引用或者指针（＆ｈ）；这样就不会报错
+    Elder &amp;h;//不会报错
+    h.sunng();//会报错，仍然不能使用类内的方法；
+    //如果想解决需要把Elder的sunng方法实现完，再在类外实现
+};
+class Elder{
+    Toad h;
+};
+</code></pre><h2 id="结构体和类的权限区别"><a href="#结构体和类的权限区别" class="headerlink" title="结构体和类的权限区别"></a>结构体和类的权限区别</h2><p>struct 默认公有；<br>类默认私有；<br>结构体不允许定义函数成员；<br>为了向下兼容所以保留ｓｔｒｕｃｔ；<br>如果你想把一系列的不同类型的数据组合成一个整体，以便于保存，这个时候你可以使用结构体，因为权限默认是公有，可以直接方便读取和访问；</p>
 
         </div>
         <!-- .entry-content -->
@@ -434,15 +445,15 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2021/04/21/c-梳理3/" rel="prev">
+            <a href="/2021/04/22/c-梳理6/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2020/portrait4k/201001.webp" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2020/portrait4k/201001.webp">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/191202.webp" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/191202.webp">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                c++梳理（三）</h3>
+                c++梳理（六）</h3>
                 <hr>
               </div>
             </a>
@@ -452,15 +463,15 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2021/04/16/c-梳理2/" rel="next">
+            <a href="/2021/04/18/c-梳理4/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/190503.webp" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/190503.webp">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/190702.webp" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/190702.webp">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                c++梳理（二）</h3>
+                c++梳理（四）</h3>
                 <hr>
               </div>
             </a>
@@ -484,16 +495,16 @@
 
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
+          <a href="https://viat.vip" class="profile gravatar"><img src="https://gitee.com/viat/viat_image/raw/master/cdn/icon_image/blog_icon.jpg" itemprop="image" alt="viat" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-            <a href="" itemprop="url" rel="author"></a>
+            <a href="https://viat.vip" itemprop="url" rel="author">viat</a>
             </h3>
           </div>
         </div>
         <hr>
-        <p><i class="iconfont icon-write"></i></p>
+        <p><i class="iconfont icon-write"></i>你点爷干什么</p>
       </section>
     </main><!-- #main -->
   </div><!-- #primary -->

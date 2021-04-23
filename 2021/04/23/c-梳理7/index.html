@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Hexo 常用命令 | Viat</title>
+  <title itemprop="name">c++梳理（七） | Viat</title>
   
     <link rel="shortcut icon" href="/icon_image/web_icon.ico">
   
@@ -360,11 +360,11 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2020/portrait4k/200801.webp);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2020/portrait4k/200801.webp">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/191203.webp);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/191203.webp">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      Hexo 常用命令</h1>
+      c++梳理（七）</h1>
       <p class="entry-census">
         <span>
           <a href="https://viat.vip">
@@ -376,7 +376,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2021-4-9<span class="bull">
+        2021-4-23<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -390,21 +390,11 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>为了方便查阅，这里讲常用指令汇总</p>
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><p><code>hexo new &quot;postName&quot;</code> #新建文章<br><code>hexo new page &quot;pageName&quot;</code> #新建页面<br><code>hexo generate</code> #生成静态页面至public目录<br><code>hexo server</code> #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）<br><code>hexo deploy</code> #部署到GitHub<br><code>hexo help</code>  # 查看帮助<br><code>hexo version</code> #查看Hexo的版本</p>
-<h2 id="简写命令"><a href="#简写命令" class="headerlink" title="简写命令"></a>简写命令</h2><pre><code>hexo n == hexo new
-</code></pre><pre><code>hexo g == hexo generate
-</code></pre><pre><code>hexo s == hexo server
-</code></pre><pre><code>hexo d == hexo deploy
-</code></pre><h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><ol>
-<li>进入服务器</li>
-<li>进入Hexo按照根目录</li>
-<li>使用<code>hexo new &quot;标题&quot;</code> 编写文章</li>
-<li>使用<code>hexo g</code> 生成html文件</li>
-<li>使用<code>hexo s</code> 启动服务</li>
-<li>使用<code>hexo d</code> 推送生成的文件</li>
-</ol>
-<h2 id="个别命令"><a href="#个别命令" class="headerlink" title="个别命令"></a>个别命令</h2><p><code>hexo clean</code> #清除缓存 ,网页正常情况下可以忽略此条命令,执行该指令后,会删掉站点根目录下的public文件夹<br><code>hexo g</code> #生成静态网页 (执行 $ hexo g后会在站点根目录下生成public文件夹, hexo会将”/blog/source/“ 下面的.md后缀的文件编译为.html后缀的文件,存放在”/blog/public/ “ 路径下)<br><code>hexo d</code> #将本地数据部署到远端服务器(如github)</p>
+          <p>#返回值优化<br><img src="https://i.loli.net/2021/04/23/YvHXwS1ZuxUAsCN.png" alt="image.png"><br>直接手动调用构造函数 会产生一个临时对象<br>临时对象性质：1 声明周期 和作用域只有一行<br>2 没有名字</p>
+<p>#纯虚函数<br>有纯虚函数的类是抽象类不能声明对象<br>但是抽象类可以具体派生出实体类，实体类可以声明对象<br>当做接口用</p>
+<p>#封装<br>类内部没有访问权限的概念就是class大括号里面<br>封装的体现1public 2private 3protected</p>
+<p>#继承<br>继承本质 是代码复用<br>继承父类的已经有的方法和属性<br>类组合：1其他类对是某个个类的属性<br>2 当前类对象与成员对象生命周期相同<br>3成员对象在用法与 使用方法相同<br>父类（基类）<br>子类（派生类）<br>写法<br>class 子类名 ：访问权限 父类名{}；<br>子类的访问权限<br><img src="https://i.loli.net/2021/04/23/ODiCpMzwZX7rd2v.png" alt="image.png"><br>对外的访问权限<br><img src="https://i.loli.net/2021/04/23/MlYgcIadmSpCebZ.png" alt="image.png"><br>继承的属性1子类拥有父类中的所有属性与方法；<br>2子类是一种特殊的父类；<br>3子类对象可以初始化父类<br>4子类中可以添加新的方法和属性<br>父类的初始化一定要在初始化列表里面<br>继承中存在组合关系的话构造顺序是先父亲再朋友 再儿子<br>析构函数顺序和构造顺序相反<br><img src="https://i.loli.net/2021/04/23/jlsUzaIMfEKZDdY.png" alt="image.png"></p>
+<p>#父子同名冲突<br>子类中是否可以定义与父类同名成员？（成员包括属性和方法）<br>1.可以定义同名属性<br>2.子类中自动隐藏父类同名属性<br>3父类的同名成员属性仍然在子类中<br>4.子类如果想调用父类的同名成员必须用作用域分辨符（子类对象.父类名：：同名属性）</p>
 
         </div>
         <!-- .entry-content -->
@@ -433,36 +423,19 @@
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2021/04/12/c-梳理1/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/190603.webp" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/190603.webp">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                c++梳理（一）</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="/2018/12/12/Hexo-Theme-Sakura/" rel="next">
+            <a href="/2021/04/22/c-梳理6/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2020/portrait4k/200203.webp" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2020/portrait4k/200203.webp">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/191202.webp" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/191202.webp">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                Hexo-Theme-Sakura</h3>
+                c++梳理（六）</h3>
                 <hr>
               </div>
             </a>
@@ -495,7 +468,7 @@
           </div>
         </div>
         <hr>
-        <p><i class="iconfont icon-write"></i></p>
+        <p><i class="iconfont icon-write"></i>你点爷干什么</p>
       </section>
     </main><!-- #main -->
   </div><!-- #primary -->
