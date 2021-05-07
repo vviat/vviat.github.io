@@ -1151,7 +1151,7 @@ a:hover,a:active {
     background-position:center center;
     background-origin:border-box;
     width:100%;
-    height:400px
+    height:100%
 }
 .pattern-center header.pattern-header {
     position:absolute;
@@ -1260,6 +1260,7 @@ a:hover,a:active {
     background-position:center center;
     background-origin:border-box;
     width:100%;
+    height:100%
 }
 .pattern-center-sakura header.pattern-header {
     position:absolute;
