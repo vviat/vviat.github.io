@@ -360,7 +360,7 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/190503.webp);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/190503.webp">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2020/landscape4k/200201.webp);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2020/landscape4k/200201.webp">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
@@ -407,18 +407,41 @@
 <h2 id="复制构造函数"><a href="#复制构造函数" class="headerlink" title="复制构造函数"></a>复制构造函数</h2><p>生成一个对象的副本有两种途径：</p>
 <ol>
 <li>建立一个新对象 ，将一个已有对象的数据成员值取出来，赋值给新对象。</li>
-<li>利用复制构造函数，通过一个已有的对象，来执行一个新对象的构造。<br>复制构造函数具有一般构造函数的所有特点；<br>复制构造函数的形参是对本类的一个对象的引用，目的是用一个已经存在的对象来初始化一个新的对象。（引用传递）<br>实际工作中，根据需求要定义一个复制构造函数，实现同类对象直接的数据成员的传递。<br>如果没有定义复制构造函数，系统会自动生成一个复制构造函数。<br><code>`</code><br>class 类名{<br>public:<br> 类名（类名＆　对象名）{<br> //实现<br> }<br>};</li>
+<li>利用复制构造函数，通过一个已有的对象，来执行一个新对象的构造。<br>复制构造函数具有一般构造函数的所有特点；<br>复制构造函数的形参是对本类的一个对象的引用，目的是用一个已经存在的对象来初始化一个新的对象。（引用传递）<br>实际工作中，根据需求要定义一个复制构造函数，实现同类对象直接的数据成员的传递。<br>如果没有定义复制构造函数，系统会自动生成一个复制构造函数。</li>
 </ol>
-<p>class 类名{//深拷贝<br>public:<br>    类名（const 类名＆　对象名）{<br>    p = new p();<br>        <em>p = </em>(r.p);<br>    }<br>private:<br>    int *p;<br>};</p>
-<pre><code>
-### 复制构造函数的调用
-1. 当用类的一个对象去初始化该类的另一个对象的时候
-</code></pre><p>Point a(1,2);//有参的构造函数<br>Point b(a);//用对象ａ去初始化对象ｂ，调用复制构造函数<br>Point c = b;//用对象ｂ去给对象ｃ赋值，调用赋值构造函数</p>
-<pre><code>2. 当函数的形参是一个类的对象，调用函数时进行形实结合的时候
-</code></pre><p>void f(Point p){}<br>Point a(1,2);<br>f(a);</p>
-<pre><code>3. 当函数的返回值是类的对象的时候；
-</code></pre><p>Point g(){<br>    Point a(1,2);<br>    return a;<br>    //当函数返回值的时候，局部变量销毁;<br>    //return a返回的并不是ａ这个对象的本身，而是通过复制构造函数用ａ重新构造的对象<br>    //在函数返回后，临时变量ａ销毁。<br>}<br><code>`</code></p>
-<h3 id="为什么系统提供复制构造函数了，我们还有实现；"><a href="#为什么系统提供复制构造函数了，我们还有实现；" class="headerlink" title="为什么系统提供复制构造函数了，我们还有实现；"></a>为什么系统提供复制构造函数了，我们还有实现；</h3><p>很多情况下，我们没有必要去定义一个复制构造函数，但如果我们不想把一个对象全部复制，我们想要有选择的复制，或者在复制的过程中加点什么（有变化的复制），此时我们就需要编写新的复制构造函数；<br>除此之外，如果<strong>类中成员有指针类型</strong>，<strong>默认的构造函数</strong>实现的只是<strong>浅拷贝</strong>，存在安全隐患，此时我们就需要深拷贝；<br>有指针会把原有的对象的地址和新对象的地址指向同一区域，这样在改一个值的时候，另一个也会改，析构的时候一个对象会被析构两次，造成程序崩溃。</p>
+<pre><code>  class 类名{
+  public:
+      类名（类名＆　对象名）{
+      //实现
+      }
+  };
+  class 类名{//深拷贝
+  public:
+      类名（const 类名＆　对象名）{
+      p = new p();
+          *p = *(r.p);
+      }
+  private:
+      int *p;
+  };
+
+</code></pre><h2 id="复制构造函数的调用"><a href="#复制构造函数的调用" class="headerlink" title="复制构造函数的调用"></a>复制构造函数的调用</h2><p>（1）当用类的一个对象去初始化该类的另一个对象的时候</p>
+<pre><code>Point a(1,2);//有参的构造函数
+Point b(a);//用对象ａ去初始化对象ｂ，调用复制构造函数
+Point c = b;//用对象ｂ去给对象ｃ赋值，调用赋值构造函数
+</code></pre><p>（2）当函数的形参是一个类的对象，调用函数时进行形实结合的时候</p>
+<pre><code>void f(Point p){}
+Point a(1,2);
+f(a);
+</code></pre><p>（3）当函数的返回值是类的对象的时候；</p>
+<pre><code>Point g(){
+    Point a(1,2);
+    return a;
+    //当函数返回值的时候，局部变量销毁;
+    //return a返回的并不是ａ这个对象的本身，而是通过复制构造函数用ａ重新构造的对象
+    //在函数返回后，临时变量ａ销毁。
+}
+</code></pre><h2 id="为什么系统提供复制构造函数了，我们还有实现；"><a href="#为什么系统提供复制构造函数了，我们还有实现；" class="headerlink" title="为什么系统提供复制构造函数了，我们还有实现；"></a>为什么系统提供复制构造函数了，我们还有实现；</h2><p>很多情况下，我们没有必要去定义一个复制构造函数，但如果我们不想把一个对象全部复制，我们想要有选择的复制，或者在复制的过程中加点什么（有变化的复制），此时我们就需要编写新的复制构造函数；<br>除此之外，如果<strong>类中成员有指针类型</strong>，<strong>默认的构造函数</strong>实现的只是<strong>浅拷贝</strong>，存在安全隐患，此时我们就需要深拷贝；<br>有指针会把原有的对象的地址和新对象的地址指向同一区域，这样在改一个值的时候，另一个也会改，析构的时候一个对象会被析构两次，造成程序崩溃。</p>
 
         </div>
         <!-- .entry-content -->
@@ -452,7 +475,7 @@
           
             <a href="/2021/04/16/c-梳理3/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/190602.webp" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/190602.webp">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2020/landscape4k/200202.webp" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2020/landscape4k/200202.webp">
               </div>
               <span class="label">
               Previous Post</span>
@@ -470,7 +493,7 @@
           
             <a href="/2021/04/12/c-梳理1/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/190502.webp" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2019/portrait4k/190502.webp">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2020/landscape4k/200102.webp" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gitee.com/viat/viat_image/raw/master/bg_image/w_lop2020/landscape4k/200102.webp">
               </div>
               <span class="label">
               Next Post</span>
