@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-05-07T07:08:32.056Z</updated>
+  <updated>2021-08-11T09:01:30.611Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>love1</title>
+    <link href="/2021/08/11/love1/"/>
+    <id>/2021/08/11/love1/</id>
+    <published>2021-08-11T08:59:07.000Z</published>
+    <updated>2021-08-11T09:01:30.611Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&amp;lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Strict//EN” “&lt;a href=&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&amp;quot;&amp;gt;&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="c1" scheme="/categories/c1/"/>
+    
+      <category term="c2" scheme="/categories/c1/c2/"/>
+    
+    
+      <category term="tag1" scheme="/tags/tag1/"/>
+    
+      <category term="tag2" scheme="/tags/tag2/"/>
+    
+  </entry>
   
   <entry>
     <title>c++梳理（九）</title>
